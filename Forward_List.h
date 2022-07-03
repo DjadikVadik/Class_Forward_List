@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include <iostream>
 
@@ -16,21 +16,21 @@ class Forward_List {
 
 public:
 	
-	Forward_List() {} // конструктор по умолчанию
-	Forward_List(Forward_List& other); // конструктор копирования
-	Forward_List(Forward_List&& other); // конструктор переноса
-	~Forward_List();   // деструктор
+	Forward_List() {} // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	Forward_List(Forward_List& other); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	Forward_List(Forward_List&& other); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРЅРѕСЃР°
+	~Forward_List();   // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 
-	int _size(); // получение размера коллекции
-	void push_front(const T& data); // вставка в начало коллекции
-	void push_back(const T& data); // вставка в конец коллекции
-	void push_after(int index, const T& data); // вставка после элемента с индексом index
-	void pop_front(); // удаление первого элемента
-	void pop_back();  // удаление последнего элемента
-	void pop_after(int index); // удаление элемента'после элемента с индексом index
-	void print() const; // вывод коллекции на консоль
-	void sort_asc(); // сортировка по возростанию
-	void sort_desc(); // сортировка по убыванию
+	int _size(); // РїРѕР»СѓС‡РµРЅРёРµ СЂР°Р·РјРµСЂР° РєРѕР»Р»РµРєС†РёРё
+	void push_front(const T& data); // РІСЃС‚Р°РІРєР° РІ РЅР°С‡Р°Р»Рѕ РєРѕР»Р»РµРєС†РёРё
+	void push_back(const T& data); // РІСЃС‚Р°РІРєР° РІ РєРѕРЅРµС† РєРѕР»Р»РµРєС†РёРё
+	void push_after(int index, const T& data); // РІСЃС‚Р°РІРєР° РїРѕСЃР»Рµ СЌР»РµРјРµРЅС‚Р° СЃ РёРЅРґРµРєСЃРѕРј index
+	void pop_front(); // СѓРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+	void pop_back();  // СѓРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°
+	void pop_after(int index); // СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°'РїРѕСЃР»Рµ СЌР»РµРјРµРЅС‚Р° СЃ РёРЅРґРµРєСЃРѕРј index
+	void print() const; // РІС‹РІРѕРґ РєРѕР»Р»РµРєС†РёРё РЅР° РєРѕРЅСЃРѕР»СЊ
+	void sort_asc(); // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РІРѕР·СЂРѕСЃС‚Р°РЅРёСЋ
+	void sort_desc(); // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СѓР±С‹РІР°РЅРёСЋ
 
 	T& operator[](int index); // 
 	Forward_List& operator=(Forward_List& other);
@@ -39,14 +39,14 @@ public:
 };
 
 template<class T>
-Forward_List<T>::Forward_List(Forward_List& other) // конструктор копирования
+Forward_List<T>::Forward_List(Forward_List& other) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 {
 	for (int i = other.size - 1; i >= 0; i--)
 		this->push_front(other[i]);
 }
 
 template<class T>
-Forward_List<T>::Forward_List(Forward_List&& other) // конструктор переноса
+Forward_List<T>::Forward_List(Forward_List&& other) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРЅРѕСЃР°
 {
 	size = other.size;
 	head = other.head;
@@ -54,19 +54,19 @@ Forward_List<T>::Forward_List(Forward_List&& other) // конструктор переноса
 }
 
 template<class T>
-Forward_List<T>::~Forward_List()  // деструктор
+Forward_List<T>::~Forward_List()  // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 {
 	while (size > 0) pop_front();
 }
 
 template<class T>
-inline int Forward_List<T>::_size()   // получение размера коллекции
+inline int Forward_List<T>::_size()   // РїРѕР»СѓС‡РµРЅРёРµ СЂР°Р·РјРµСЂР° РєРѕР»Р»РµРєС†РёРё
 {
 	return size;
 }
 
 template<class T>
-void Forward_List<T>::push_front(const T& data)  // вставка в начало коллекции
+void Forward_List<T>::push_front(const T& data)  // РІСЃС‚Р°РІРєР° РІ РЅР°С‡Р°Р»Рѕ РєРѕР»Р»РµРєС†РёРё
 {
 	if (head == nullptr) {
 		head = new Node();
@@ -82,13 +82,13 @@ void Forward_List<T>::push_front(const T& data)  // вставка в начало коллекции
 }
 
 template<class T>
-void Forward_List<T>::push_back(const T& data) // вставка в конец коллекции
+void Forward_List<T>::push_back(const T& data) // РІСЃС‚Р°РІРєР° РІ РєРѕРЅРµС† РєРѕР»Р»РµРєС†РёРё
 {
 	push_after(size - 1, data);
 }
 
 template<class T>
-void Forward_List<T>::push_after(int index, const T& data) // вставка после элемента с индексом index
+void Forward_List<T>::push_after(int index, const T& data) // РІСЃС‚Р°РІРєР° РїРѕСЃР»Рµ СЌР»РµРјРµРЅС‚Р° СЃ РёРЅРґРµРєСЃРѕРј index
 {
 	if (index < 0 || index >= size) throw std::exception("incorect index!!!");
 	Node* temporary = head;
@@ -107,7 +107,7 @@ void Forward_List<T>::push_after(int index, const T& data) // вставка после элем
 }
 
 template<class T>
-void Forward_List<T>::pop_front() // удаление первого элемента
+void Forward_List<T>::pop_front() // СѓРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 {
 	if (head->next == nullptr) {
 		delete head;
@@ -122,13 +122,13 @@ void Forward_List<T>::pop_front() // удаление первого элемента
 }
 
 template<class T>
-void Forward_List<T>::pop_back() // удаление последнего элемента
+void Forward_List<T>::pop_back() // СѓРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°
 {
 	pop_after(size - 2);
 }
 
 template<class T>
-void Forward_List<T>::pop_after(int index)  // удаление элемента'после элемента с индексом index
+void Forward_List<T>::pop_after(int index)  // СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°'РїРѕСЃР»Рµ СЌР»РµРјРµРЅС‚Р° СЃ РёРЅРґРµРєСЃРѕРј index
 {
 	if (index < 0 || index >= size - 1) throw std::exception("incorect index!!!");
 	Node* temporary = head;
@@ -145,7 +145,7 @@ void Forward_List<T>::pop_after(int index)  // удаление элемента'после элемента 
 }
 
 template<class T>
-void Forward_List<T>::print() const  // вывод коллекции на консоль
+void Forward_List<T>::print() const  // РІС‹РІРѕРґ РєРѕР»Р»РµРєС†РёРё РЅР° РєРѕРЅСЃРѕР»СЊ
 {
 	Node* temporary = head;
 	while (temporary != nullptr) {
@@ -186,7 +186,7 @@ void Forward_List<T>::sort_desc()
 }
 
 template<class T>
-T& Forward_List<T>::operator[](int index)  // перегрузка оператора []
+T& Forward_List<T>::operator[](int index)  // РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° []
 {
 	if (index < 0 || index >= size) throw std::exception("incorect index!!!");
 	Node* temporary = head;
